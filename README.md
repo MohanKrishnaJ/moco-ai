@@ -28,12 +28,12 @@ import requests
 import psutil
 import webbrowser
 
-# Initialize text-to-speech engine
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-current_voice = 'female'
+    # Initialize text-to-speech engine
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    current_voice = 'female'
 
-def set_voice(gender='female'):
+    def set_voice(gender='female'):
     """Set the chatbot voice to male or female."""
     global current_voice
     for voice in voices:
@@ -46,21 +46,21 @@ def set_voice(gender='female'):
             current_voice = 'male'
             return
 
-# Default voice
-set_voice('female')
+     # Default voice
+    set_voice('female')
 
-def speak(text):
+    def speak(text):
     """Speak and print the given text."""
     print(f"MOCO: {text}")
     engine.say(text)
     engine.runAndWait()
 
-# System and AI state
-ai_name = "MOCO"
-version = "v1.6.5"
-mode = "offline"
+    # System and AI state
+    ai_name = "MOCO"
+    version = "v1.6.5"
+    mode = "offline"
 
-def detect_internet():
+    def detect_internet():
     """Check if internet connection is available."""
     try:
         requests.get("https://www.google.com", timeout=3)
@@ -68,7 +68,7 @@ def detect_internet():
     except:
         return False
 
-def toggle_mode(command):
+    def toggle_mode(command):
     """Switch between online and offline modes."""
     global mode
     if "go online" in command.lower():
@@ -81,7 +81,7 @@ def toggle_mode(command):
         mode = "offline"
         speak("Offline mode activated.")
 
-def detect_system():
+    def detect_system():
     """Detect and return system information."""
     system_info = {
         "OS": platform.system(),
@@ -90,7 +90,7 @@ def detect_system():
     }
     return system_info
 
-def handle_command(command):
+    def handle_command(command):
     """Process and respond to user commands."""
     toggle_mode(command)
 
@@ -116,7 +116,7 @@ def handle_command(command):
     else:
         speak(f"You said: {command}")
 
-def main():
+    def main() 
     """Main chatbot loop."""
     speak(f"Hello, I am {ai_name} {version}")
     while True:
@@ -132,6 +132,6 @@ def main():
         except KeyboardInterrupt:
             break
 
-if __name__ == "__main__":
+     if __name__ == "__main__":
     main()
 <img width="1185" height="604" alt="Screenshot 2025-11-08 235932" src="https://github.com/user-attachments/assets/42f611a3-0533-40d3-ba2f-2432af146c3b" />
